@@ -1,27 +1,246 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
-body {
-  font-family: 'Cairo', sans-serif;
-  scroll-behavior: smooth;
-}
+        :root {
+            --color-primary: #06b6d4;
+            --color-primary-dark: #0891b2;
+            --color-dark: #0f172a;
+            --color-darker: #020617;
+        }
 
-.hero {
-  background: linear-gradient(to right, #000000, #111111);
-}
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--color-dark);
+            color: #fff;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
+        /* Particles Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.3;
+        }
 
-.btn-primary {
-  background-color: #0d6efd;
-  border: none;
-}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-}
+        ::-webkit-scrollbar-track {
+            background: var(--color-dark);
+        }
 
-footer {
-  font-size: 0.9rem;
-}
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-darker), var(--color-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Glow Effects */
+        .glow {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.7);
+        }
+
+        .glow-box {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Buttons */
+        .btn-custom {
+            background-color: var(--color-primary);
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-custom:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2);
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+
+        /* Cards */
+        .service-card {
+            transition: all 0.4s ease;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navbar */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(2, 6, 23, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Animations */
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            10% {
+                transform: rotate(14deg);
+            }
+
+            20% {
+                transform: rotate(-8deg);
+            }
+
+            30% {
+                transform: rotate(14deg);
+            }
+
+            40% {
+                transform: rotate(-4deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
+
+            60% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .wave-animation {
+            animation: wave 2s ease infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #06b6d4, #22d3ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            bottom: -10px;
+            left: 25%;
+        }
+                .blog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 1px solid rgba(179, 102, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-card h4 {
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        .blog-card p {
+            color: #ccc;
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .read-more:hover {
+            color: white;
+            gap: 10px;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(179, 102, 255, 0.2);
+            border: 1px solid rgba(179, 102, 255, 0.3);
+        }
