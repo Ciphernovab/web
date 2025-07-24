@@ -183,6 +183,12 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
+    document.addEventListener("click", function (e) {
+        if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add("hidden");
+        }
+    });
+
 });
 
 // Back to Top Button
