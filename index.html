@@ -2,1225 +2,779 @@
 <html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cipher Nova - قادة في حلول الأمن السيبراني المتكاملة وحماية البيانات">
-  <title>Cipher Nova | خبراء الأمن السيبراني وحماية الأنظمة الرقمية</title>
-  
-  <!-- Preload Resources -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" as="style">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-  
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- CSS Libraries -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <!-- Tailwind with Custom Config -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: '#ecfeff',
-              100: '#cffafe',
-              200: '#a5f3fc',
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4',
-              600: '#0891b2',
-              700: '#0e7490',
-              800: '#155e75',
-              900: '#164e63',
-            },
-            dark: {
-              900: '#020617',
-              800: '#0f172a',
-              700: '#1e293b',
-              600: '#334155',
-              500: '#475569',
-            }
-          },
-          fontFamily: {
-            'cairo': ['Cairo', 'sans-serif'],
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 6s ease-in-out infinite',
-            'gradient-x': 'gradient-x 8s ease infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
-            },
-            'gradient-x': {
-              '0%, 100%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-  
-  <style>
-    :root {
-      --color-primary: #06b6d4;
-      --color-primary-dark: #0891b2;
-      --color-dark: #0f172a;
-      --color-darker: #020617;
-    }
-    
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--color-dark);
-      color: #fff;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cipher Nova - قادة في حلول الأمن السيبراني المتكاملة وحماية البيانات">
+    <title>Cipher Nova | خبراء الأمن السيبراني وحماية الأنظمة الرقمية</title>
 
-    /* Particles Background */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      opacity: 0.3;
-    }
+    <!-- Preload Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap"
+        as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--color-dark);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--color-primary);
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--color-primary-dark);
-    }
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--color-darker), var(--color-dark));
-      position: relative;
-      overflow: hidden;
-    }
+    <!-- CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Glow Effects */
-    .glow {
-      text-shadow: 0 0 10px rgba(6, 182, 212, 0.7);
-    }
-    .glow-box {
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-    }
-
-    /* Buttons */
-    .btn-custom {
-      background-color: var(--color-primary);
-      color: white;
-      font-weight: bold;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-custom:hover {
-      background-color: transparent;
-      color: var(--color-primary);
-      border-color: var(--color-primary);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2);
-    }
-
-    .btn-custom::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-
-    .btn-custom:hover::before {
-      left: 100%;
-    }
-
-    /* Cards */
-    .service-card {
-      transition: all 0.4s ease;
-      perspective: 1000px;
-      transform-style: preserve-3d;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px) rotateX(5deg);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Navbar */
-    .navbar {
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      background-color: rgba(2, 6, 23, 0.95);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-    }
-
-    /* Animations */
-    @keyframes wave {
-      0% { transform: rotate(0deg); }
-      10% { transform: rotate(14deg); }
-      20% { transform: rotate(-8deg); }
-      30% { transform: rotate(14deg); }
-      40% { transform: rotate(-4deg); }
-      50% { transform: rotate(10deg); }
-      60% { transform: rotate(0deg); }
-      100% { transform: rotate(0deg); }
-    }
-
-    .wave-animation {
-      animation: wave 2s ease infinite;
-      transform-origin: 70% 70%;
-      display: inline-block;
-    }
-
-    /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(90deg, #06b6d4, #22d3ee);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* 3D Effect */
-    .transform-3d {
-      transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
-      transition: transform 0.5s ease;
-    }
-
-    .transform-3d:hover {
-      transform: perspective(1000px) rotateY(0) rotateX(0);
-    }
-  </style>
+    <!-- Tailwind with Custom Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="antialiased">
 
-  <!-- Loading Screen -->
-  <div id="loading" class="fixed inset-0 bg-dark-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
-    <div class="flex space-x-2 space-x-reverse mb-8">
-      <div class="w-6 h-6 bg-primary-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-      <div class="w-6 h-6 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-      <div class="w-6 h-6 bg-primary-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+    <!-- Loading Screen -->
+    <div id="loading"
+        class="fixed inset-0 bg-dark-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="flex space-x-2 space-x-reverse mb-8">
+            <div class="w-6 h-6 bg-primary-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+            <div class="w-6 h-6 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            <div class="w-6 h-6 bg-primary-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+        </div>
+        <h3 class="text-2xl font-bold text-primary-400 animate-pulse">جاري التحميل...</h3>
     </div>
-    <h3 class="text-2xl font-bold text-primary-400 animate-pulse">جاري التحميل...</h3>
-  </div>
 
-  <!-- Navbar -->
-  <header id="navbar" class="navbar fixed top-0 w-full z-50 bg-dark-900/80 shadow-md transition-all duration-300">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center space-x-2 space-x-reverse">
-        <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center glow-box">
-          <i class="fas fa-shield-alt text-dark-900 text-xl"></i>
-        </div>
-        <h1 class="text-2xl font-bold text-primary-400">Cipher Nova</h1>
-      </div>
-      
-      <nav class="hidden md:flex space-x-8 space-x-reverse">
-        <a href="#home" class="text-white hover:text-primary-300 nav-link relative group">
-          الرئيسية
-          <span class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#about" class="text-white hover:text-primary-300 nav-link relative group">
-          من نحن
-          <span class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#services" class="text-white hover:text-primary-300 nav-link relative group">
-          خدماتنا
-          <span class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#projects" class="text-white hover:text-primary-300 nav-link relative group">
-          مشاريعنا
-          <span class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#contact" class="text-white hover:text-primary-300 nav-link relative group">
-          تواصل معنا
-          <span class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </nav>
-      
-      <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden absolute top-16 right-4 bg-dark-800 p-4 rounded-lg shadow-xl z-50 w-64">
-      <div class="flex flex-col space-y-4">
-        <a href="#home" class="text-white hover:text-primary-300">الرئيسية</a>
-        <a href="#about" class="text-white hover:text-primary-300">من نحن</a>
-        <a href="#services" class="text-white hover:text-primary-300">خدماتنا</a>
-        <a href="#projects" class="text-white hover:text-primary-300">مشاريعنا</a>
-        <a href="#contact" class="text-white hover:text-primary-300">تواصل معنا</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero min-h-screen flex items-center justify-center text-center px-4 relative">
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
-    
-    <div class="hero-content container mx-auto relative z-10">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white" data-aos="fade-down">
-        <span class="gradient-text">حماية المستقبل الرقمي</span>
-        <span class="wave-animation ml-2">👋</span>
-      </h1>
-      
-      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300" data-aos="fade-up" data-aos-delay="100">
-        نقدم <span class="text-primary-400 font-bold">حلول أمنية متكاملة</span> لحماية بياناتك وبنيتك التحتية من أحدث التهديدات السيبرانية
-      </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-        <a href="#contact" class="btn-custom px-8 py-3 text-lg font-bold transform hover:-translate-y-1 transition-transform">
-          <i class="fas fa-headset mr-2"></i> تواصل معنا
-        </a>
-        <a href="#projects" class="btn bg-dark-700 hover:bg-dark-600 text-white border border-primary-500/30 hover:border-primary-500 px-8 py-3 text-lg font-bold transform hover:-translate-y-1 transition-transform">
-          <i class="fas fa-eye mr-2"></i> عرض المشاريع
-        </a>
-      </div>
-      
-      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="300">
-        <a href="#about" class="text-white text-2xl">
-          <i class="fas fa-chevron-down"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-dark-800/50 relative overflow-hidden">
-    <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
-    <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary-400 rounded-full filter blur-3xl opacity-10"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col lg:flex-row items-center gap-12">
-        <div class="lg:w-1/2" data-aos="fade-right">
-          <div class="relative transform-3d hover:shadow-xl rounded-xl overflow-hidden">
-            <img src="https://i.ibb.co/6n0hLWF/cyber-security-team.jpg" alt="فريق Cipher Nova" 
-                 class="w-full h-auto rounded-xl shadow-2xl border-2 border-primary-500/20 hover:border-primary-500/50 transition-all">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6">
-              <h4 class="text-white text-xl font-bold">فريقنا المتخصص</h4>
-              <p class="text-primary-300">خبراء معتمدون في الأمن السيبراني</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="lg:w-1/2" data-aos="fade-left">
-          <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-6 relative inline-block">
-            <span class="relative z-10">من نحن</span>
-            <span class="absolute bottom-0 right-0 w-full h-2 bg-primary-500/30 z-0"></span>
-          </h2>
-          
-          <p class="text-lg md:text-xl mb-6 leading-relaxed text-gray-300">
-            <span class="text-primary-400 font-bold">Cipher Nova</span> هي شركة رائدة في مجال الأمن السيبراني وحماية البيانات، تأسست عام 2020 بمجموعة من الخبراء والمتخصصين في مجال الأمن المعلوماتي.
-          </p>
-          
-          <p class="text-lg md:text-xl mb-8 leading-relaxed text-gray-300">
-            نتميز بخبرة واسعة في اكتشاف الثغرات الأمنية، اختبار الاختراق، تحليل البرمجيات الخبيثة، وتصميم أنظمة حماية متكاملة. فريقنا مؤلف من محترفين معتمدين في مجال الأمن السيبراني من أفضل المؤسسات العالمية.
-          </p>
-          
-          <div class="grid grid-cols-2 gap-4 mb-8">
-            <div class="flex items-center p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
-              <div class="w-12 h-12 bg-primary-500/10 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-certificate text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-bold">50+</h4>
-                <p class="text-gray-400 text-sm">مشروع ناجح</p>
-              </div>
-            </div>
-            
-            <div class="flex items-center p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
-              <div class="w-12 h-12 bg-primary-500/10 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-users text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-bold">30+</h4>
-                <p class="text-gray-400 text-sm">خبير معتمد</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="flex flex-wrap gap-4">
-            <a href="#services" class="btn-custom flex items-center">
-              <i class="fas fa-list mr-2"></i> خدماتنا
-            </a>
-            <a href="#contact" class="btn bg-dark-700 hover:bg-dark-600 text-white border border-primary-500/30 hover:border-primary-500 flex items-center">
-              <i class="fas fa-envelope mr-2"></i> تواصل معنا
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-dark-900 relative overflow-hidden">
-    <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-4">خدماتنا المتخصصة</h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          نقدم مجموعة متكاملة من خدمات الأمن السيبراني المصممة لحماية أعمالك من أحدث التهديدات
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-user-secret text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">الاختراق الأخلاقي</h3>
-          <p class="text-gray-400 text-center">
-            اختبارات اختراق شاملة لتقييم نقاط الضعف في أنظمتك وشبكاتك وتطبيقاتك قبل أن يستغلها المخترقون.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-shield-virus text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">حماية من الفيروسات</h3>
-          <p class="text-gray-400 text-center">
-            حلول متقدمة للحماية من البرمجيات الخبيثة والفيروسات وبرامج الفدية مع تحديثات لحظية.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-lock text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">تشفير البيانات</h3>
-          <p class="text-gray-400 text-center">
-            حلول تشفير متقدمة لحماية بياناتك الحساسة سواء في التخزين أو أثناء النقل عبر الشبكات.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Service 4 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-eye text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">مراقبة الأمن</h3>
-          <p class="text-gray-400 text-center">
-            مراقبة مستمرة على مدار الساعة لاكتشاف أي تهديدات أو أنشطة مشبوهة في أنظمتك.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Service 5 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-users text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">تدريب العاملين</h3>
-          <p class="text-gray-400 text-center">
-            برامج تدريبية متخصصة لزيادة الوعي الأمني لدى موظفيك وتعريفهم بأحدث أساليب التصيد.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Service 6 -->
-        <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-            <i class="fas fa-ambulance text-2xl text-primary-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-center text-white mb-3">استجابة للحوادث</h3>
-          <p class="text-gray-400 text-center">
-            فريق استجابة سريع للحوادث الأمنية لاحتواء الاختراقات وتقليل الأضرار واستعادة الأنظمة.
-          </p>
-          <div class="mt-6 text-center">
-            <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
-              المزيد <i class="fas fa-arrow-left mr-2"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://i.ibb.co/4W2hyKc/cyber-pattern.png')] opacity-10"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8 text-center">
-        <div class="p-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="150">0</div>
-          <div class="text-primary-200 font-medium">مشروع ناجح</div>
-        </div>
-        
-        <div class="p-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="50">0</div>
-          <div class="text-primary-200 font-medium">عميل راضٍ</div>
-        </div>
-        
-        <div class="p-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="30">0</div>
-          <div class="text-primary-200 font-medium">خبير معتمد</div>
-        </div>
-        
-        <div class="p-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="24">0</div>
-          <div class="text-primary-200 font-medium">دعم فني</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-dark-800 relative overflow-hidden">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-4">أبرز مشاريعنا</h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          بعض النماذج من أعمالنا الناجحة مع كبرى الشركات والمؤسسات
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://i.ibb.co/FgtFBdZ/ethical-hacker.jpg" alt="مشروع هكر أخلاقي" 
-               class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-          
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white mb-2">اختبار اختراق لمنصة حكومية</h3>
-            <p class="text-gray-300 mb-4">اكتشاف وإصلاح 12 ثغرة حرجة في منصة الخدمات الحكومية قبل استغلالها.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">أمن التطبيقات</span>
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">اختبار اختراق</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 2 -->
-        <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://i.ibb.co/6RJQ5Py/network-security.jpg" alt="أمن الشبكات" 
-               class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-          
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white mb-2">تأمين شبكة بنكية</h3>
-            <p class="text-gray-300 mb-4">تصميم وتنفيذ نظام حماية متكامل لشبكة بنك كبير ضد هجمات DDoS.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">أمن الشبكات</span>
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">حماية من الهجمات</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 3 -->
-        <div class="group relative overflow-hidden rounded-xl" data-aos="fade-up" data-aos-delay="300">
-          <img src="https://i.ibb.co/0nLc4GX/data-protection.jpg" alt="حماية البيانات" 
-               class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-          
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white mb-2">نظام تشفير بيانات طبية</h3>
-            <p class="text-gray-300 mb-4">تطوير نظام تشفير متقدم لحماية السجلات الطبية لمجموعة مستشفيات.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">تشفير البيانات</span>
-              <span class="bg-primary-500/20 text-primary-400 text-xs px-3 py-1 rounded-full">الصحة الرقمية</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-16" data-aos="fade-up">
-        <a href="#contact" class="btn-custom px-8 py-3 inline-flex items-center">
-          <i class="fas fa-paper-plane mr-2"></i> اطلب عرضاً خاصاً لمشروعك
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-20 bg-dark-900/50 relative overflow-hidden">
-    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-4">ماذا يقول عملاؤنا؟</h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          آراء عملائنا هي دليل نجاحنا وتميزنا في مجال الأمن السيبراني
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="100">
-          <div class="flex items-center mb-6">
-            <img src="https://i.ibb.co/4d3Y4Zd/client1.jpg" alt="عميل" class="w-14 h-14 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold text-white mb-0">أحمد السعدي</h4>
-              <small class="text-primary-400">مدير تقنية المعلومات</small>
-            </div>
-          </div>
-          <p class="text-gray-400 mb-6">
-            "فريق Cipher Nova قام بعمل ممتاز في اكتشاف الثغرات الأمنية في نظامنا قبل أن تستغل. تعاملهم كان محترفاً جداً والتقرير المقدم كان شاملاً وواضحاً."
-          </p>
-          <div class="flex justify-between items-center">
-            <div class="text-amber-400">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="text-primary-400 text-2xl">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="200">
-          <div class="flex items-center mb-6">
-            <img src="https://i.ibb.co/6r2WwQ6/client2.jpg" alt="عميل" class="w-14 h-14 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold text-white mb-0">سارة النهدي</h4>
-              <small class="text-primary-400">مديرة الأمن السيبراني</small>
-            </div>
-          </div>
-          <p class="text-gray-400 mb-6">
-            "بعد تعرضنا لهجوم إلكتروني، فريق Cipher Nova استجاب بسرعة واحتوى المشكلة باحترافية. الآن نتعاون معهم في مراقبة أنظمتنا بشكل مستمر."
-          </p>
-          <div class="flex justify-between items-center">
-            <div class="text-amber-400">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-            <div class="text-primary-400 text-2xl">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all" data-aos="fade-up" data-aos-delay="300">
-          <div class="flex items-center mb-6">
-            <img src="https://i.ibb.co/2Zy6J3C/client3.jpg" alt="عميل" class="w-14 h-14 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold text-white mb-0">خالد الفهد</h4>
-              <small class="text-primary-400">نائب الرئيس للتقنية</small>
-            </div>
-          </div>
-          <p class="text-gray-400 mb-6">
-            "التدريب الذي قدمه فريقهم لموظفينا كان ممتازاً وزاد من وعيهم الأمني بشكل ملحوظ. ننوي التعاون معهم في مشاريع مستقبلية أخرى."
-          </p>
-          <div class="flex justify-between items-center">
-            <div class="text-amber-400">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="text-primary-400 text-2xl">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-dark-800 relative overflow-hidden">
-    <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
-    
-    <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-6">تواصل معنا</h2>
-          <p class="text-xl text-gray-300 mb-8">
-            مستعدون للإجابة على جميع استفساراتك وتقديم استشارة أمنية مجانية لمشروعك
-          </p>
-          
-          <div class="space-y-6">
-            <div class="flex items-start p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
-              <div class="bg-primary-500/10 p-3 rounded-lg mr-4">
-                <i class="fas fa-phone text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white mb-1">الهاتف</h4>
-                <p class="text-gray-400">+966 12 345 6789</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
-              <div class="bg-primary-500/10 p-3 rounded-lg mr-4">
-                <i class="fas fa-envelope text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white mb-1">البريد الإلكتروني</h4>
-                <p class="text-gray-400">info@cipher-nova.com</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
-              <div class="bg-primary-500/10 p-3 rounded-lg mr-4">
-                <i class="fas fa-map-marker-alt text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white mb-1">المقر الرئيسي</h4>
-                <p class="text-gray-400">الرياض، المملكة العربية السعودية</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="mt-8">
-            <h4 class="font-bold text-white mb-4">تابعنا على</h4>
-            <div class="flex space-x-4 space-x-reverse">
-              <a href="#" class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
-                <i class="fab fa-twitter text-xl"></i>
-              </a>
-              <a href="#" class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
-                <i class="fab fa-linkedin-in text-xl"></i>
-              </a>
-              <a href="#" class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div data-aos="fade-left">
-          <div class="bg-dark-700 p-8 rounded-xl border border-dark-600 shadow-xl">
-            <h3 class="text-2xl font-bold text-white mb-6">أرسل لنا رسالة</h3>
-            <form id="contactForm" class="space-y-4">
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-gray-400 mb-2">اسمك الكامل</label>
-                  <input type="text" class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
+    <!-- Navbar -->
+    <header id="navbar" class="navbar fixed top-0 w-full z-50 bg-dark-900/80 shadow-md transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center glow-box">
+                    <i class="fas fa-shield-alt text-dark-900 text-xl"></i>
                 </div>
-                <div>
-                  <label class="block text-gray-400 mb-2">بريدك الإلكتروني</label>
-                  <input type="email" class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
+                <h1 class="text-2xl font-bold text-primary-400">Cipher Nova</h1>
+            </div>
+
+            <nav class="hidden md:flex space-x-8 space-x-reverse">
+                <a href="#home" class="text-white hover:text-primary-300 nav-link relative group">
+                    الرئيسية
+                    <span
+                        class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-white hover:text-primary-300 nav-link relative group">
+                    من نحن
+                    <span
+                        class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="text-white hover:text-primary-300 nav-link relative group">
+                    خدماتنا
+                    <span
+                        class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="text-white hover:text-primary-300 nav-link relative group">
+                    مشاريعنا
+                    <span
+                        class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="text-white hover:text-primary-300 nav-link relative group">
+                    تواصل معنا
+                    <span
+                        class="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-16 right-4 bg-dark-800 p-4 rounded-lg shadow-xl z-50 w-64">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-primary-300">الرئيسية</a>
+                <a href="#about" class="text-white hover:text-primary-300">من نحن</a>
+                <a href="#services" class="text-white hover:text-primary-300">خدماتنا</a>
+                <a href="#projects" class="text-white hover:text-primary-300">مشاريعنا</a>
+                <a href="#contact" class="text-white hover:text-primary-300">تواصل معنا</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-center px-4 relative">
+        <!-- Particles Background -->
+        <div id="particles-js"></div>
+
+        <div class="hero-content container mx-auto relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white" data-aos="fade-down">
+                <span class="gradient-text">حماية المستقبل الرقمي</span>
+                <span class="wave-animation ml-2">👋</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300" data-aos="fade-up" data-aos-delay="100">
+                نقدم <span class="text-primary-400 font-bold">حلول أمنية متكاملة</span> لحماية بياناتك وبنيتك التحتية من
+                أحدث التهديدات السيبرانية
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact"
+                    class="btn-custom px-8 py-3 text-lg font-bold transform hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-headset mr-2"></i> تواصل معنا
+                </a>
+                <a href="#projects"
+                    class="btn bg-dark-700 hover:bg-dark-600 text-white border border-primary-500/30 hover:border-primary-500 px-8 py-3 text-lg font-bold transform hover:-translate-y-1 transition-transform">
+                    <i class="fas fa-eye mr-2"></i> عرض المشاريع
+                </a>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up"
+                data-aos-delay="300">
+                <a href="#about" class="text-white text-2xl">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-800/50 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary-400 rounded-full filter blur-3xl opacity-10">
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <div class="relative transform-3d hover:shadow-xl rounded-xl overflow-hidden">
+                        <img src="https://www.canva.com/design/DAGt-KBtQ1w/b9CoOZcM7xhTnaznck57jQ/watch?utm_content=DAGt-KBtQ1w&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0890a6475a" alt="فريق Cipher Nova"
+                            class="w-full h-auto rounded-xl shadow-2xl border-2 border-primary-500/20 hover:border-primary-500/50 transition-all">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h4 class="text-white text-xl font-bold">فريقنا المتخصص</h4>
+                            <p class="text-primary-300">خبراء معتمدون في الأمن السيبراني</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
-              <div>
-                <label class="block text-gray-400 mb-2">الموضوع</label>
-                <input type="text" class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
-              </div>
-              
-              <div>
-                <label class="block text-gray-400 mb-2">الرسالة</label>
-                <textarea class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" rows="5" required></textarea>
-              </div>
-              
-              <button type="submit" class="btn-custom w-full py-4 text-lg font-bold mt-4">
-                <i class="fas fa-paper-plane mr-2"></i> إرسال الرسالة
-              </button>
-            </form>
-          </div>
+
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-6 relative inline-block">
+                        <span class="relative z-10">من نحن</span>
+                        <span class="absolute bottom-0 right-0 w-full h-2 bg-primary-500/30 z-0"></span>
+                    </h2>
+
+                    <p class="text-lg md:text-xl mb-6 leading-relaxed text-gray-300">
+                        <span class="text-primary-400 font-bold">Cipher Nova</span> هي شركة رائدة في مجال الأمن
+                        السيبراني وحماية البيانات، تأسست عام 2020 بمجموعة من الخبراء والمتخصصين في مجال الأمن
+                        المعلوماتي.
+                    </p>
+
+                    <p class="text-lg md:text-xl mb-8 leading-relaxed text-gray-300">
+                        نتميز بخبرة واسعة في اكتشاف الثغرات الأمنية، اختبار الاختراق، تحليل البرمجيات الخبيثة، وتصميم
+                        أنظمة حماية متكاملة. فريقنا مؤلف من محترفين معتمدين في مجال الأمن السيبراني من أفضل المؤسسات
+                        العالمية.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div
+                            class="flex items-center p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
+                            <div class="w-12 h-12 bg-primary-500/10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-certificate text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">50+</h4>
+                                <p class="text-gray-400 text-sm">مشروع ناجح</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
+                            <div class="w-12 h-12 bg-primary-500/10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">30+</h4>
+                                <p class="text-gray-400 text-sm">خبير معتمد</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="btn-custom flex items-center">
+                            <i class="fas fa-list mr-2"></i> خدماتنا
+                        </a>
+                        <a href="#contact"
+                            class="btn bg-dark-700 hover:bg-dark-600 text-white border border-primary-500/30 hover:border-primary-500 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> تواصل معنا
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Comment Section -->
-  <section class="py-12 bg-dark-900">
-    <div class="container mx-auto px-4">
-      <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 shadow-lg" data-aos="fade-up">
-        <h3 class="text-2xl font-bold text-primary-400 mb-6">💬 شاركنا رأيك</h3>
-        
-        <form id="commentForm" class="mb-8">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-gray-400 mb-2">اسمك</label>
-              <input type="text" id="username" class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" required>
-            </div>
-            <div>
-              <label class="block text-gray-400 mb-2">بريدك الإلكتروني (اختياري)</label>
-              <input type="email" id="useremail" class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-            </div>
-          </div>
-          
-          <div class="mt-4">
-            <label class="block text-gray-400 mb-2">تعليقك</label>
-            <textarea id="comment" class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" rows="4" required></textarea>
-          </div>
-          
-          <button type="submit" class="btn-custom mt-6 px-8 py-3">
-            <i class="fas fa-comment mr-2"></i> إرسال التعليق
-          </button>
-        </form>
-        
-        <div id="commentsList" class="space-y-6"></div>
-      </div>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-dark-900 relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
 
-  <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://i.ibb.co/4W2hyKc/cyber-pattern.png')] opacity-10"></div>
-    
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up">جاهزون لتأمين نظامك ضد الهجمات الإلكترونية؟</h2>
-      <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-        تواصل معنا اليوم واحصل على استشارة أمنية مجانية من خبرائنا
-      </p>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <a href="#contact" class="btn bg-white text-primary-800 hover:bg-gray-100 px-8 py-4 text-lg font-bold inline-flex items-center transform hover:-translate-y-1 transition-transform">
-          ابدأ الآن <i class="fas fa-arrow-left mr-2"></i>
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-4">خدماتنا المتخصصة</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    نقدم مجموعة متكاملة من خدمات الأمن السيبراني المصممة لحماية أعمالك من أحدث التهديدات
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-user-secret text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">الاختراق الأخلاقي</h3>
+                    <p class="text-gray-400 text-center">
+                        اختبارات اختراق شاملة لتقييم نقاط الضعف في أنظمتك وشبكاتك وتطبيقاتك قبل أن يستغلها المخترقون.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-shield-virus text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">حماية من الفيروسات</h3>
+                    <p class="text-gray-400 text-center">
+                        حلول متقدمة للحماية من البرمجيات الخبيثة والفيروسات وبرامج الفدية مع تحديثات لحظية.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-lock text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">تشفير البيانات</h3>
+                    <p class="text-gray-400 text-center">
+                        حلول تشفير متقدمة لحماية بياناتك الحساسة سواء في التخزين أو أثناء النقل عبر الشبكات.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-eye text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">مراقبة الأمن</h3>
+                    <p class="text-gray-400 text-center">
+                        مراقبة مستمرة على مدار الساعة لاكتشاف أي تهديدات أو أنشطة مشبوهة في أنظمتك.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-users text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">تدريب العاملين</h3>
+                    <p class="text-gray-400 text-center">
+                        برامج تدريبية متخصصة لزيادة الوعي الأمني لدى موظفيك وتعريفهم بأحدث أساليب التصيد.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-ambulance text-2xl text-primary-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-white mb-3">استجابة للحوادث</h3>
+                    <p class="text-gray-400 text-center">
+                        فريق استجابة سريع للحوادث الأمنية لاحتواء الاختراقات وتقليل الأضرار واستعادة الأنظمة.
+                    </p>
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-primary-400 hover:text-primary-300 inline-flex items-center">
+                            المزيد <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(-228deg, #243AFF 0%, #6978FF 100%)] opacity-10"></div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="150">0</div>
+                    <div class="text-primary-200 font-medium">مشروع ناجح</div>
+                </div>
+
+                <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="50">0</div>
+                    <div class="text-primary-200 font-medium">عميل راضٍ</div>
+                </div>
+
+                <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="30">0</div>
+                    <div class="text-primary-200 font-medium">خبير معتمد</div>
+                </div>
+
+                <div class="p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl font-bold text-white mb-2 animate-count" data-count="24">0</div>
+                    <div class="text-primary-200 font-medium">دعم فني</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="blog" class="section" style="background: rgba(179, 102, 255, 0.05);">
+        <div class="container">
+            <h3 class="section-title" data-aos="fade-up">📰 آخر مقالاتنا</h3>
+            <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="200">آخر الأخبار والنصائح في عالم الأمن
+                السيبراني</p>
+            <div class="blog">
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Hacking Tools">
+                    <h4>أقوى 5 أدوات هاكينج في 2025</h4>
+                    <p>نظرة سريعة على الأدوات الجديدة اللي غيرت مفهوم الأمن السيبراني وكيفية استخدامها في اختبارات
+                        الاختراق الأخلاقي...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Cyber Security">
+                    <h4>كيف تبدأ في عالم السايبر سيكيوريتي؟</h4>
+                    <p>دليلك الكامل من الصفر لحد الاحتراف، تعرف على المسارات الوظيفية والمهارات المطلوبة وأفضل المصادر
+                        للتعلم...</p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Data Protection">
+                    <h4>أفضل ممارسات حماية البيانات</h4>
+                    <p>تعرف على أحدث الاستراتيجيات والتقنيات المستخدمة في حماية البيانات الحساسة من الاختراق والتسريب...
+                    </p>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="#" class="cta-button">عرض جميع المقالات</a>
+            </div>
+        </div>
+    </section>
+    <!-- </div>
+    </section> -->
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-dark-900/50 relative overflow-hidden">
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10">
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-4">ماذا يقول عملاؤنا؟</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    آراء عملائنا هي دليل نجاحنا وتميزنا في مجال الأمن السيبراني
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.ibb.co/4d3Y4Zd/client1.jpg" alt="عميل"
+                            class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-white mb-0">أحمد السعدي</h4>
+                            <small class="text-primary-400">مدير تقنية المعلومات</small>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        "فريق Cipher Nova قام بعمل ممتاز في اكتشاف الثغرات الأمنية في نظامنا قبل أن تستغل. تعاملهم كان
+                        محترفاً جداً والتقرير المقدم كان شاملاً وواضحاً."
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-primary-400 text-2xl">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.ibb.co/6r2WwQ6/client2.jpg" alt="عميل"
+                            class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-white mb-0">سارة النهدي</h4>
+                            <small class="text-primary-400">مديرة الأمن السيبراني</small>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        "بعد تعرضنا لهجوم إلكتروني، فريق Cipher Nova استجاب بسرعة واحتوى المشكلة باحترافية. الآن نتعاون
+                        معهم في مراقبة أنظمتنا بشكل مستمر."
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="text-primary-400 text-2xl">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 hover:border-primary-500/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.ibb.co/2Zy6J3C/client3.jpg" alt="عميل"
+                            class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-white mb-0">خالد الفهد</h4>
+                            <small class="text-primary-400">نائب الرئيس للتقنية</small>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        "التدريب الذي قدمه فريقهم لموظفينا كان ممتازاً وزاد من وعيهم الأمني بشكل ملحوظ. ننوي التعاون
+                        معهم في مشاريع مستقبلية أخرى."
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-primary-400 text-2xl">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark-800 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-400 mb-6">تواصل معنا</h2>
+                    <p class="text-xl text-gray-300 mb-8">
+                        مستعدون للإجابة على جميع استفساراتك وتقديم استشارة أمنية مجانية لمشروعك
+                    </p>
+
+                    <div class="space-y-6">
+                        <div
+                            class="flex items-start p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
+                            <div class="bg-primary-500/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">البريد الإلكتروني</h4>
+                                <p class="text-gray-400">ciphernova7@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start p-4 bg-dark-700 rounded-lg border border-dark-600 hover:border-primary-500/30 transition-all">
+                            <div class="bg-primary-500/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">المقر الرئيسي</h4>
+                                <p class="text-gray-400">مصر,القاهره</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-white mb-4">تابعنا على</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#"
+                                class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="w-12 h-12 bg-dark-700 hover:bg-primary-500 rounded-full flex items-center justify-center transition-all border border-dark-600 hover:border-primary-500">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <div class="bg-dark-700 p-8 rounded-xl border border-dark-600 shadow-xl">
+                        <h3 class="text-2xl font-bold text-white mb-6">أرسل لنا رسالة</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-400 mb-2">اسمك الكامل</label>
+                                    <input type="text"
+                                        class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                                        required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-400 mb-2">بريدك الإلكتروني</label>
+                                    <input type="email"
+                                        class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-400 mb-2">الموضوع</label>
+                                <input type="text"
+                                    class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-400 mb-2">الرسالة</label>
+                                <textarea
+                                    class="w-full bg-dark-800 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                                    rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-custom w-full py-4 text-lg font-bold mt-4">
+                                <i class="fas fa-paper-plane mr-2"></i> إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment Section -->
+    <section class="py-12 bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 shadow-lg" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-primary-400 mb-6">💬 شاركنا رأيك</h3>
+
+                <form id="commentForm" class="mb-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-400 mb-2">اسمك</label>
+                            <input type="text" id="username"
+                                class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-2">بريدك الإلكتروني (اختياري)</label>
+                            <input type="email" id="useremail"
+                                class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block text-gray-400 mb-2">تعليقك</label>
+                        <textarea id="comment"
+                            class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-custom mt-6 px-8 py-3">
+                        <i class="fas fa-comment mr-2"></i> إرسال التعليق
+                    </button>
+                </form>
+
+                <div id="commentsList" class="space-y-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(-228deg, #243AFF 0%, #6978FF 100%)] opacity-10"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up">جاهزون لتأمين نظامك ضد الهجمات
+                الإلكترونية؟</h2>
+            <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                تواصل معنا اليوم واحصل على استشارة أمنية مجانية من خبرائنا
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact"
+                    class="btn bg-white text-primary-800 hover:bg-gray-100 px-8 py-4 text-lg font-bold inline-flex items-center transform hover:-translate-y-1 transition-transform">
+                    ابدأ الآن <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 text-gray-400 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 space-x-reverse mb-6">
+                        <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-dark-900 text-xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Cipher Nova</h4>
+                    </div>
+                    <p class="mb-6">
+                        شركة رائدة في مجال الأمن السيبراني وحماية البيانات، نقدم حلولاً أمنية مبتكرة وشاملة للشركات
+                        والمؤسسات.
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-6">روابط سريعة</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> الرئيسية
+                            </a></li>
+                        <li><a href="#about" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> من نحن
+                            </a></li>
+                        <li><a href="#services" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> خدماتنا
+                            </a></li>
+                        <li><a href="#projects" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> مشاريعنا
+                            </a></li>
+                        <li><a href="#contact" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> تواصل معنا
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-6">خدماتنا</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> الاختراق الأخلاقي
+                            </a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> حماية من الفيروسات
+                            </a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> تشفير البيانات
+                            </a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> مراقبة الأمن
+                            </a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
+                                <i class="fas fa-arrow-left text-xs mr-2"></i> استجابة للحوادث
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-lg font-bold mb-6">النشرة البريدية</h5>
+                    <p class="mb-6">
+                        اشترك في نشرتنا البريدية لتصلك آخر الأخبار والتحديثات الأمنية.
+                    </p>
+                    <form class="flex mb-4">
+                        <input type="email" placeholder="بريدك الإلكتروني"
+                            class="bg-dark-700 text-white px-4 py-3 rounded-s-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent w-full">
+                        <button type="submit" class="bg-primary-500 text-white px-4 rounded-e-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <p class="text-xs text-gray-500">
+                        لن نشارك بريدك مع أي طرف ثالث. يمكنك إلغاء الاشتراك في أي وقت.
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border-dark-700 my-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 Cipher Nova. كل الحقوق محفوظة.</p>
+                <div class="flex space-x-6 space-x-reverse mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary-400 transition-all">شروط الخدمة</a>
+                    <a href="#" class="hover:text-primary-400 transition-all">سياسة الخصوصية</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-6 left-6 space-y-3 z-50">
+        <a href="#contact"
+            class="w-14 h-14 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg hover:bg-primary-600 transition-all transform hover:scale-110"
+            data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-headset"></i>
         </a>
-      </div>
+
+        <a href="#" id="backToTop"
+            class="w-14 h-14 bg-dark-700 rounded-full flex items-center justify-center text-white text-xl shadow-lg border border-dark-600 hover:border-primary-500 transition-all transform hover:scale-110 hidden">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark-900 text-gray-400 pt-16 pb-8">
-    <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-4 gap-10 mb-12">
-        <div>
-          <div class="flex items-center space-x-2 space-x-reverse mb-6">
-            <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-shield-alt text-dark-900 text-xl"></i>
-            </div>
-            <h4 class="text-2xl font-bold text-white">Cipher Nova</h4>
-          </div>
-          <p class="mb-6">
-            شركة رائدة في مجال الأمن السيبراني وحماية البيانات، نقدم حلولاً أمنية مبتكرة وشاملة للشركات والمؤسسات.
-          </p>
-          <div class="flex space-x-4 space-x-reverse">
-            <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
-              <i class="fab fa-twitter text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
-              <i class="fab fa-linkedin-in text-xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary-400 transition-all">
-              <i class="fab fa-instagram text-xl"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h5 class="text-white text-lg font-bold mb-6">روابط سريعة</h5>
-          <ul class="space-y-3">
-            <li><a href="#home" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> الرئيسية
-            </a></li>
-            <li><a href="#about" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> من نحن
-            </a></li>
-            <li><a href="#services" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> خدماتنا
-            </a></li>
-            <li><a href="#projects" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> مشاريعنا
-            </a></li>
-            <li><a href="#contact" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> تواصل معنا
-            </a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h5 class="text-white text-lg font-bold mb-6">خدماتنا</h5>
-          <ul class="space-y-3">
-            <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> الاختراق الأخلاقي
-            </a></li>
-            <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> حماية من الفيروسات
-            </a></li>
-            <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> تشفير البيانات
-            </a></li>
-            <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> مراقبة الأمن
-            </a></li>
-            <li><a href="#" class="hover:text-primary-400 transition-all flex items-center">
-              <i class="fas fa-arrow-left text-xs mr-2"></i> استجابة للحوادث
-            </a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h5 class="text-white text-lg font-bold mb-6">النشرة البريدية</h5>
-          <p class="mb-6">
-            اشترك في نشرتنا البريدية لتصلك آخر الأخبار والتحديثات الأمنية.
-          </p>
-          <form class="flex mb-4">
-            <input type="email" placeholder="بريدك الإلكتروني" 
-                   class="bg-dark-700 text-white px-4 py-3 rounded-s-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent w-full">
-            <button type="submit" class="bg-primary-500 text-white px-4 rounded-e-lg">
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-          <p class="text-xs text-gray-500">
-            لن نشارك بريدك مع أي طرف ثالث. يمكنك إلغاء الاشتراك في أي وقت.
-          </p>
-        </div>
-      </div>
-      
-      <hr class="border-dark-700 my-8">
-      
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p>&copy; 2025 Cipher Nova. كل الحقوق محفوظة.</p>
-        <div class="flex space-x-6 space-x-reverse mt-4 md:mt-0">
-          <a href="#" class="hover:text-primary-400 transition-all">شروط الخدمة</a>
-          <a href="#" class="hover:text-primary-400 transition-all">سياسة الخصوصية</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- JS Libraries -->
 
-  <!-- Floating Buttons -->
-  <div class="fixed bottom-6 left-6 space-y-3 z-50">
-    <a href="#contact" class="w-14 h-14 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg hover:bg-primary-600 transition-all transform hover:scale-110" 
-       data-aos="fade-up" data-aos-delay="300">
-      <i class="fas fa-headset"></i>
-    </a>
-    
-    <a href="#" id="backToTop" class="w-14 h-14 bg-dark-700 rounded-full flex items-center justify-center text-white text-xl shadow-lg border border-dark-600 hover:border-primary-500 transition-all transform hover:scale-110 hidden">
-      <i class="fas fa-arrow-up"></i>
-    </a>
-  </div>
 
-  <!-- JS Libraries -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  
-  <!-- Main JS -->
-  <script>
-    // Loading Screen
-    window.addEventListener('load', function() {
-      const loading = document.getElementById('loading');
-      loading.style.opacity = '0';
-      setTimeout(() => {
-        loading.style.display = 'none';
-      }, 500);
-    });
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
 
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      easing: 'ease-in-out',
-    });
-
-    // Particles.js Config
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#06b6d4"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#06b6d4",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-
-    // Mobile Menu Toggle
-    const mobileMenuButton = document.getElementById('mobileMenuButton');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Back to Top Button
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.remove('hidden');
-      } else {
-        backToTop.classList.add('hidden');
-      }
-    });
-    
-    backToTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    // Comment Form
-    const commentForm = document.getElementById('commentForm');
-    const commentsList = document.getElementById('commentsList');
-    
-    commentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('username').value.trim();
-      const email = document.getElementById('useremail').value.trim();
-      const comment = document.getElementById('comment').value.trim();
-      
-      if (name && comment) {
-        const now = new Date();
-        const commentItem = document.createElement('div');
-        commentItem.classList.add('bg-dark-700', 'p-6', 'rounded-lg', 'border', 'border-dark-600', 'animate__animated', 'animate__fadeInUp');
-        commentItem.innerHTML = `
-          <div class="flex justify-between items-start mb-4">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-primary-500/10 rounded-full flex items-center justify-center mr-3">
-                <i class="fas fa-user text-primary-400"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-white">${name}</h4>
-                ${email ? `<small class="text-primary-400">${email}</small>` : ''}
-              </div>
-            </div>
-            <small class="text-gray-500">${now.toLocaleString('ar-EG')}</small>
-          </div>
-          <p class="text-gray-300">${comment}</p>
-          <div class="flex justify-end mt-4">
-            <button class="text-gray-500 hover:text-primary-400 text-sm delete-comment">
-              <i class="fas fa-trash mr-1"></i> حذف
-            </button>
-          </div>
-        `;
-        
-        commentsList.prepend(commentItem);
-        commentForm.reset();
-        
-        // Add delete functionality
-        const deleteBtn = commentItem.querySelector('.delete-comment');
-        deleteBtn.addEventListener('click', () => {
-          commentItem.classList.add('animate__fadeOut');
-          setTimeout(() => {
-            commentItem.remove();
-          }, 500);
-        });
-        
-        // Scroll to the new comment
-        setTimeout(() => {
-          commentItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-      }
-    });
-
-    // Animated Counter
-    const counters = document.querySelectorAll('.animate-count');
-    const speed = 200;
-    
-    function animateCounters() {
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const increment = target / speed;
-        
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(animateCounters, 1);
-        } else {
-          counter.innerText = target;
-        }
-      });
-    }
-    
-    // Start counting when section is in view
-    const statsSection = document.querySelector('.bg-gradient-to-r');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    observer.observe(statsSection);
-
-    // Form Submission
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Simulate form submission
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> جاري الإرسال...';
-      
-      setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> تم الإرسال بنجاح';
-        
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-          contactForm.reset();
-        }, 2000);
-      }, 1500);
-    });
-  </script>
 </body>
 
 </html>
