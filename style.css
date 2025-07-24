@@ -1,3 +1,6 @@
+        *{
+            scroll-behavior: smooth;
+        }
         :root {
             --color-primary: #06b6d4;
             --color-primary-dark: #0891b2;
@@ -201,7 +204,7 @@
             padding: 25px;
             border-radius: 15px;
             transition: all 0.3s;
-            border: 1px solid rgba(179, 102, 255, 0.1);
+            border: 1px solid var(--color-primary-dark);
             backdrop-filter: blur(5px);
         }
 
@@ -225,7 +228,7 @@
         }
 
         .read-more {
-            color: var(--primary-color);
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -241,6 +244,42 @@
 
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(179, 102, 255, 0.2);
-            border: 1px solid rgba(179, 102, 255, 0.3);
+            box-shadow: 0 10px 30px var(--color-primary-dark);
+            border: 1px solid var(--color-primary-dark)
+        }
+        .cta-button {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px var(--color-primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--color-primary-dark);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
