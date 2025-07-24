@@ -115,7 +115,9 @@
             transform: translateY(-10px) rotateX(5deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
+        #navbar {
+            margin-top: 17px;
+        }
         /* Navbar */
         .navbar {
             transition: all 0.3s ease;
